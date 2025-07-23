@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <title>MARIA CHRISTINA FINUUCI</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="Navigation">
+        <ul id="nav-menu">
+          <li class="nav-item">
+            <a href="index.html">MARIA CHRISTINA FINUCCI</a>
+          </li>
+          <li class="nav-item"><a href="ARTWORK.html">ARTWORKS</a></li>
+          <li class="nav-item"><a href="TEXT.html">TEXT</a></li>
+          <li class="nav-item"><a href="VIDEO.html">VIDEO</a></li>
+          <li class="nav-item"><a href="BIOGRAPHY.html">BIOGRAPHY</a></li>
+          <li class="nav-item"><a href="PRESS.html">PRESS</a></li>
+          <li class="nav-item">
+            <a
+              href="https://www.garbagepatchstate.org/web/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              THE GARBAGE PATCH STATE
+            </a>
+          </li>
+          <li class="nav-item"><a href="CONTACT.html">CONTACT</a></li>
+        </ul>
+        <i class="fab fa-instagram insta-icon1"></i>
+      </nav>
+      <div class="image">
+        <h1 class="titleC1">MARIA CHRISTINA FINUCCI</h1>
+        <div id="icon">
+          <a href="Menu.html">
+            <span class="menu">Menü</span>
+          </a>
+        </div>
+
+        <!-- 修正ポイント: id 追加 -->
+
+        <img src="images/marco santi amantini.jpg" class="centered-image1" />
+      </div>
+    </div>
+
+    <!-- ダミーコンテンツでページ長くする -->
+    <div style="height: -5px"></div>
+
+    <script>
+      const icon = document.getElementById("icon");
+      const target = document.getElementById("target");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              icon.classList.add("hidden"); // トリガー要素が見えた → icon 非表示
+            } else {
+              icon.classList.remove("hidden"); // トリガー要素が画面外 → icon 表示
+            }
+          });
+        },
+        {
+          root: null, // viewport
+          threshold: 0.1, // 10%表示されたら反応
+        }
+      );
+
+      observer.observe(target);
+    </script>
+  </body>
+</html>

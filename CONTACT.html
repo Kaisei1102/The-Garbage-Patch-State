@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style1.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <!-- <head> 内に追加 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <title>CONTACT - MARIA CHRISTINA FINUUCI</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="Navigation">
+        <ul>
+          <li class="nav-item">
+            <a href="index.html">MARIA CHRISTINA FINUCCI</a>
+          </li>
+          <li class="nav-item">
+            <a href="ARTWORK.html">ARTWORKS</a>
+          </li>
+          <li class="nav-item">
+            <a href="TEXT.html">TEXT</a>
+          </li>
+          <li class="nav-item">
+            <a href="VIDEO.html">VIDEO</a>
+          </li>
+          <li class="nav-item">
+            <a href="BIOGRAPHY.html">BIOGRAPHY</a>
+          </li>
+          <li class="nav-item">
+            <a href="PRESS.html">PRESS</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://www.garbagepatchstate.org/web/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              THE GARBAGE PATCH STATE
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="CONTACT.html">CONTACT</a>
+          </li>
+          <i class="fab fa-instagram insta-icon"></i>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="gallery-container">
+      <h1 class="gallery-titleK">CONTACT</h1>
+      <div id="icon">
+        <a href="Menu.html">
+          <span class="menu">Menü</span>
+        </a>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="slide active">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9332.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9346.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9357.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9372.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9394.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="images/The Garbage Patch State Artworks/iloveimg-converted/IMG_9404.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <div class="carousel-dots"></div>
+          <button class="pause-btn">⏸</button>
+
+          <h2>LEGAL NOTICE / CONTACT</h2>
+          <p>
+            Email Maria Cristina Finucci
+            <strong
+              ><a href="mailto:c.finucci@gmail.com"
+                >c.finucci@gmail.com</a
+              ></strong
+            >
+          </p>
+
+          <h2>LEGAL NOTICE / IMPRESSUM</h2>
+          <p>
+            Email Maria Cristina Finucci
+            <strong
+              ><a href="mailto:c.finucci@gmail.com"
+                >c.finucci@gmail.com</a
+              ></strong
+            >
+          </p>
+
+          <h2>COPYRIGHT © 2008–2025 MARIA CRISTINA FINUCCI</h2>
+          <p><strong>Studio</strong></p>
+          <p>Pastificio Cerere, Via degli Ausoni 3</p>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps?q=Via+degli+Ausoni+3,+Rome,+Italy&output=embed"
+              width="350"
+              height="250"
+              style="border: 0"
+              allowfullscreen
+              loading="lazy"
+            >
+            </iframe>
+            <h3>
+              Design/ Kaisei Okubo
+              <a href="kaiseiokubo@gmail.com">kaiseiokubo@gmail.com</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const dotsContainer = document.querySelector(".carousel-dots");
+      const pauseBtn = document.querySelector(".pause-btn");
+      let currentIndex = 0;
+      let isPlaying = true;
+      let interval;
+
+      // ドットを生成
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+      const dots = document.querySelectorAll(".dot");
+
+      function goToSlide(index) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        let nextIndex = (currentIndex + 1) % slides.length;
+        goToSlide(nextIndex);
+      }
+
+      function startAutoSlide() {
+        interval = setInterval(nextSlide, 5000);
+        isPlaying = true;
+        pauseBtn.textContent = "⏸";
+      }
+
+      function stopAutoSlide() {
+        clearInterval(interval);
+        isPlaying = false;
+        pauseBtn.textContent = "▶";
+      }
+
+      pauseBtn.addEventListener("click", () => {
+        isPlaying ? stopAutoSlide() : startAutoSlide();
+      });
+
+      startAutoSlide();
+    </script>
+  </body>
+</html>
